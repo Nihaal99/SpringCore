@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+             http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util.xsd
+            ">
+            
+           <!-- standalone list -->
+           
+           <util:list list-class="java.util.LinkedList" id="mybestfriends">
+           <value>Aman</value>
+           <value>Raman</value>
+           <value>Rohit</value>
+           <value>Ankit</value>
+           </util:list>
+           
+           <!-- standalone map -->
+           <util:map map-class="java.util.HashMap" id="feestructure">
+           <entry key="Spring Framework" value="8000"/>
+           <entry key="Django Framework" value="5000"/>
+           <entry key="Hibernate Framework" value="2000"/>
+           </util:map>
+           
+            <!-- standalone properties -->
+            <!-- properties is a class ulike hashmap and linkedlist so it will automatically understand so no need to specify class. -->
+            <util:properties id="dbconfig">
+            <prop key="driver">com.mysql.jdbc.Driver</prop>
+            <prop key="username">Nihaal</prop>
+            <prop key="password">abc</prop>
+            </util:properties>
+            
+           <bean class="com.springcore.standalone.collections.Person" name="person1">
+           <property name="friends" ref="mybestfriends"/>
+           <property name="fees" ref="feestructure"/>
+           <property name="property" ref="dbconfig"/>
+            </bean>
+           </beans>
